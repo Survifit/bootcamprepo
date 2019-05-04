@@ -2,6 +2,9 @@
 config.py
 api_keys.py
 
+# Visual Studio compiled
+.vscode
+
 # Jupyter checkpoints
 .ipynb_checkpoints
 
