@@ -1,3 +1,8 @@
+# Week 10 Homework - SQALCHEMY
+# UofMN Data Visualization and Analytics Bootcamp
+# Created by Chris Howard
+# 05/04/2019
+
 import numpy as np
 import datetime as dt
 
