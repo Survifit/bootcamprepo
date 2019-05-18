@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mars Information</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>
+
+    <!-- Mars News -->
+    <div class="row" id="news">
+      <div class="col-md-12">
+        <h2 class="heading"><strong>Latest Mars News</strong></h2>
+        <h4><strong>{{mars_info.news.title}}</strong></h4>
+        <p>{{mars_info.news.summary}}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8" id="featured_image">
+            <div class="thumbnail">
+                <img src={{mars_info.feat_img | safe}} alt="Featured Image">
+                <div class="caption">
+                    <h3>JPL Featured Mars Image</h3>
+                </div>
+            </div>
+          
+      </div>
+      <div class="col-md-4">
+          <div class="row">
+              <!--Weather Tweet Information-->
+              <div class="col-12" id="current_weather">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Current Weather on Mars</h3>
+                    </div>
+                    <div class="panel-body">
+                        {{mars_info.weather}}
+                    </div>
+                </div>     
+              </div>
+              <!--Mars facts table-->
+              <div class="col-12" id="mars_facts">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Mars Facts</h3>
+                    </div>
+                    <div class="panel-body">
+                        {{mars_info.facts | safe}}
+                    </div>
+                </div>     
+              </div>         
+          </div>
+      </div>    
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h2 class="heading text-center">Mars Hemispheres</h2>
+            <hr>
+        </div>
+    </div>
+    <!--Pictures of all 4 hemispheres of Mars-->
+    <div class="row">
+        {% for image in mars_info.hemi_img %}
+        <div class="col-md-6">
+            <div class="thumbnail">
+            <img src={{image.img_url | safe}} alt={{image.title}}>
+            <div class="caption">
+                <h3>{{image.title}}</h3>
+            </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+  </div>
+</body>
+
+</html>
