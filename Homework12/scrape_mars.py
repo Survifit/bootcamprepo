@@ -65,6 +65,9 @@ def scrape():
         hemisphere_image_urls.append({'title':name, 'img_url':url})
         browser.back()
 
+    # close browser process
+    browser.quit()
+    
     # Create master dictionary to load in database
     post = {
         'news': {'title':news_title, 'summary':news_summary},
